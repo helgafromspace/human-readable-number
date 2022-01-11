@@ -6,29 +6,29 @@ module.exports = function toReadable (number) {
   decimalsTwentyPlus = ['','','twenty','thirty','forty','fifty','sixty','seventy','eighty','ninety']
   hundred = ["hundred"];
   if (m.length == 1){
-  for(i = 0; i <= m[0]; i++){
-     if (i == m[0]) {
+    for(i = 0; i <= m[0]; i++){
+      if (i == m[0]) {
        return digits[i];
-     }
+      }
+    }
   }
+  if (m.length == 2 && m[0] == 1){
+    for(i = 0; i <= m[1]; i++){
+      if (i == m[1]) {
+        return decimalsTen[i]
+      }
+    }  
   }
-   if (m.length == 2 && m[0] == 1){
-     for(i = 0; i <= m[1]; i++){
-       if (i == m[1]) {
-         return decimalsTen[i]
-     }
-  }  
-}
-     if (m.length == 2 && m[0] > 1){
-       for(i = 0; i <= m[0]; i++){
-        for(j = 0; j <= m[1]; j++){
-          if (i == m[0] && j == m[1]){
-            if(digits[j] == digits[0]){
-              return decimalsTwentyPlus[i];
+  if (m.length == 2 && m[0] > 1){
+    for(i = 0; i <= m[0]; i++){
+      for(j = 0; j <= m[1]; j++){
+        if (i == m[0] && j == m[1]){
+          if(digits[j] == digits[0]){
+            return decimalsTwentyPlus[i];
             } else {
              return decimalsTwentyPlus[i] + ' ' + digits[j];
-              }
-          }
+            }
+        }
      } 
    }
  }
